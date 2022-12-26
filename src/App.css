@@ -19,6 +19,8 @@
     align-items: center;
     width: 60%;
     height: 70%;
+    min-width: 540px;
+    max-width: 540px;
     color: white;
 }
 .description-details{
@@ -45,6 +47,8 @@
     justify-content: center;
     align-items: center;
     width: 40%;
+    max-width: 408px;
+    min-width: 408px;
     height: 70%;
     gap: 32px;
     
@@ -101,8 +105,7 @@
     box-shadow: 0px 2px 1px hsl(154, 90%, 28%);
     border-radius: 8px;
     background-color: hsl(154, 59%, 51%);
-    font-weight: bold;
-    
+    font-weight: bold; 
 }
 .terms-div{
     font-size: 10px;
@@ -118,10 +121,8 @@
     font-weight: bold;
     color: hsl(0, 100%, 74%);
     font-size: 11px;
-    margin: 0;
-    
+    margin: 0;    
 }
-
 
 @media screen and (max-width: 375px){
     .App{
@@ -139,6 +140,8 @@
         display: flex;
         justify-content: center;
         align-content: center;
+        max-width: 375px;
+        min-width: 375px;
     }
     .description-details{
         align-items: center;
@@ -157,6 +160,8 @@
         width: 90%;
         gap: 24px;
         margin-top: 48px;
+        max-width: 338px;
+        min-width: 338px;
     }
     .subscription-div{
         width: 100%;
