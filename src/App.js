@@ -1,17 +1,26 @@
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 import React from 'react';
 import { useState } from 'react';
 import './App.css';
 
 function App() {
 
-  const [user, setUser] = useState({})
-  function handleChange(event){
-    const {name, value} = event.target;
-    setUser({name : value})
-  }
-  function handleSubmit(e){
+  const [firstName, setFirstName] = useState()
+  const [lastName, setLastName] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
+  const [userDetails, SetUserDetails] = useState([])
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
+    userDetails.push({ firstName: firstName, lastName: lastName, email: email, password: password })
+    console.log(userDetails);
+    console.log(firstName);
+    console.log(lastName);
+    console.log(email);
+    console.log(password);
+    isDisabled(true)
   }
   return (
     <div className='App'>
@@ -29,16 +38,16 @@ function App() {
           </div>
           <div className='form-div'>
             <form className='form' onSubmit={handleSubmit}>
-              <input type='text' className='input-field' onChange={handleChange} name='' id='first-name' placeholder='First Name' />
+              <input type='text' className='input-field' onChange={(e) => setFirstName(e.target.value)} name='' id='first-name' placeholder='First Name' required />
 
-              <input type='text' className='input-field' onChange={handleChange} name='' id='last-name' placeholder='Last Name' />
+              <input type='text' className='input-field' onChange={(e) => setLastName(e.target.value)} name='' id='last-name' placeholder='Last Name' required />
 
-              <input type='email' className='input-field' onChange={handleChange} name='' id='email' placeholder='E-mail Address' />
+              <input type='email' className='input-field' onChange={(e) => setEmail(e.target.value)} name='' id='email' placeholder='E-mail Address' required />
 
-              <input type='password' className='input-field' onChange={handleChange} name='' id='password' placeholder='Password' />
+              <input type='password' className='input-field' onChange={(e) => setPassword(e.target.value)} name='' id='password' placeholder='Password' required />
 
               <input type='submit' className='submit-button' value='CLAIM YOUR FREE TRIAL' />
-            
+
               <div className='terms-div'><p>By clicking the button, you are agreeing to our <b className='terms'>terms and services</b></p></div>
             </form>
           </div>
